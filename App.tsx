@@ -1,94 +1,108 @@
-// import React from 'react'
-// import { StyleSheet, View, Text } from 'react-native'
-//
-//
-// const styles = StyleSheet.create({
-//   container: {
-//     position: 'absolute',
-//     top: '40%',
-//   },
-//   dummyText: {
-//     color: 'red',
-//     fontWeight: 'bold',
-//     fontSize: 30,
-//     textAlign: 'center'
-//   }
-// });
-//
-//
-//
-//
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.dummyText}>Create your first React Native App</Text>
-//     </View>
-//   )
-// }
+import React, {Component} from 'react';
+import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 
-import React from 'react';
-import {Text, View, StyleSheet, Button, TouchableOpacity} from 'react-native';
+class App extends Component {
+  state = {
+    count: 0,
+  };
+
+  onPress = () => {
+    this.setState({
+      count: this.state.count + 1,
+    });
+  };
+
+  render() {
+    return (
+    <>
+
+      <View style={styles.container2} >
+          <View style={{ flexDirection: 'row', display: 'tableRow' }}>
+                <TouchableOpacity style={styles.square}>
+                          <Text>1</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.square}>
+                    <Text>1</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.square}>
+                    <Text>1</Text>
+                </TouchableOpacity>
+          </View>
+          <View style={{ flexDirection: 'row', display: 'tableRow' }}>
+                <TouchableOpacity style={styles.square}>
+                          <Text>Click me</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.square}>
+                    <Text>Click me</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.square}>
+                    <Text>Click me</Text>
+                </TouchableOpacity>
+          </View>
+          <View style={{flexDirection: 'row', display: 'tableRow' }}>
+                <TouchableOpacity style={styles.square}>
+                          <Text>Click me</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.square}>
+                    <Text>Click me</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.square}>
+                    <Text>Click me</Text>
+                </TouchableOpacity>
+          </View>
+      </View>
+    </>
+    );
+  }
+}
+
+//     return
+//     <div style="display: flex; flex-wrap: wrap">
+//         <div className="board-row">
+//             <button onClick={onSquareClick} className="square">0</button>
+//             <button onClick={onSquareClick} className="square">1</button>
+//             <button onClick={onSquareClick} className="square">2</button>
+//         </div>
+//         <div className="board-row">
+//             <button onClick={onSquareClick} className="square">3</button>
+//             <button onClick={onSquareClick} className="square">4</button>
+//             <button onClick={onSquareClick} className="square">5</button>
+//         </div>
+//         <div className="board-row">
+//             <button onClick={onSquareClick} className="square">6<button>
+//             <button onClick={onSquareClick} className="square">7</button>
+//             <button onClick={onSquareClick} className="square">8</button>
+//         </div>
+//     </div>
+
+
 
 const styles = StyleSheet.create({
-    center: {
-        clear: 'both',
-        content: '""',
-        display: 'table',
-    },
-    square: {
-        color: 'red',
-        borderWidth: 5,
-        width:'33%',
-        height:40,
-        justifyContent:'space-evenly',
+  container: {
 
-    },
-      row: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-      },
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+   container2: {
+    display:'table',
+    width:'33%',
+    position: 'relative',
 
-})
-// {backgroundColor: '#737373', borderWidth: 5, borderColor: 'blue', height:40, margin:10}
-type GreetingProps = {
-    name: string;
-}
+  },
+  square: {
+    borderWidth:1,
+    margin:1,
+    width:'30%',
+    height:'30%',
+    aspectRatio: 1,
+    backgroundColor:'blue',
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#64D9',
+    padding: 10,
+    marginBottom: 10,
+  },
+});
 
-const Square = () => {
-    return (
-
-        <TouchableOpacity key='1' style={[styles.square]}>
-            <Text style={{textAlign: 'center', fontSize:20, fontWeight: 900}}>My button</Text>
-        </TouchableOpacity>
-
-    )
-}
-
-const Squares = () => {
-    return (
-        <Button color="red" title="text">
-            <Text>My button</Text>
-        </Button>
-    )
-}
-
-const LotsOfGreetings = () => {
-    return (
-        <View>
-            <View style={[styles.center]}>
-                <View style={{padding: 10, flex: 1}}>
-                    <View style={[styles.row]}>
-                        <Square style={{padding: 10,}}/>
-                        <Square style={{padding: 10,}}/>
-                        <Square style={{padding: 10,}}/>
-                    </View>
-                </View>
-            </View>
-        </View>
-    );
-};
-
-
-
-
-export default LotsOfGreetings
+export default App;
